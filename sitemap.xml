@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://cattalk.nousbuild.org/</loc>
+<priority>1.0</priority>
+<lastmod>2020-01-21T10:18:00+00:00</lastmod>
+<changefreq>Always</changefreq>
+</url>
+<url>
+<loc>https://cattalk.nousbuild.org/about.html</loc>
+<priority>0.8</priority>
+<lastmod>2020-01-21T10:18:00+00:00</lastmod>
+<changefreq>Always</changefreq>
+</url>
+<url>
+<loc>https://cattalk.nousbuild.org/e1.html</loc>
+<priority>0.8</priority>
+<lastmod>2020-01-21T10:18:00+00:00</lastmod>
+<changefreq>Always</changefreq>
+</url>
+<url>
+<loc>https://cattalk.nousbuild.org/s1.html</loc>
+<priority>0.8</priority>
+<lastmod>2020-01-21T10:18:00+00:00</lastmod>
+<changefreq>Always</changefreq>
+</url>
+<url>
+<loc>https://cattalk.nousbuild.org/s2.html</loc>
+<priority>0.8</priority>
+<lastmod>2020-01-21T10:18:00+00:00</lastmod>
+<changefreq>Always</changefreq>
+</url>
+<url>
+<loc>https://cattalk.nousbuild.org/s3.html</loc>
+<priority>0.8</priority>
+<lastmod>2020-01-21T10:18:00+00:00</lastmod>
+<changefreq>Always</changefreq>
+</url>
+</urlset>
