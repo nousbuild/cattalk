@@ -19,8 +19,6 @@ HTML, JavaScript, CSS
 
 仅需储存空间即可
 
-- https://b.nousbuild.top/cloud/index.php?user/login)
-
 #### 如何使用 ?
 
 1. 获取某个分支的代码文件到本地，不保留根文件夹 `cattalk.nousbuild.org`；
