@@ -93,7 +93,9 @@
     width: 150px;
     background-size: cover;
     -webkit-transition: all .3s ease;
-    transition: all .3s ease
+    transition: all .3s ease;
+    /*删除音乐封面的主题颜色*/
+    background-color: rgb(255, 255, 255, 0) !important;
   }
   
   .aplayer .aplayer-pic:hover .aplayer-button {

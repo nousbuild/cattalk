@@ -40,8 +40,8 @@
 	<!-- Bootstrap  -->
 	<link rel="stylesheet" href="assets/css/bootstrap.css">
 
-	<!-- Theme style -->
-	<link rel="stylesheet" href="assets/css/style.css">
+	<!-- Theme Style  -->
+	<link rel="stylesheet" id="main-css" href="assets/css/style.css" />
 
 	<!-- Music -->
 	<link href="assets/css/APlayer.min.css" rel="stylesheet">
@@ -55,7 +55,7 @@
 
 </head>
 
-<body>
+<body onload="onload()">
 
 	<div class="fh5co-loader"></div>
 
@@ -191,6 +191,17 @@
 								</div>
 							</div>
 
+							<!-- 深色模式 -->
+							<div class="side animate-box">
+								<div class="col-md-12 col-md-offset-0 text-center fh5co-heading fh5co-heading-sidebar">
+									<h2><span>主题 Theme</span></h2>
+								</div>
+
+								<input type="checkbox" id="dark-theme-toggle" onclick="saveDarkMode(this)"/>
+								<label class="dark-button" for="dark-theme-toggle"></label>
+
+							</div>
+
 							<!-- 作者介绍 -->
 							<div class="side animate-box">
 								<div class="col-md-12 col-md-offset-0 text-center fh5co-heading fh5co-heading-sidebar">
@@ -293,6 +304,79 @@
 	<script src="assets/js/main.js"></script>
 	<!-- Music -->
 	<script src="assets/js/APlayer.min.js"></script>
+
+	<!-- Inside Scripts -->
+	<script type="text/javascript">
+		/* footerYeaer js */
+		document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+
+		/* load theme settings */
+		function onload(hour) {
+			// 打开页面
+			var checked = JSON.parse(localStorage.getItem("dark-theme-toggle"));
+			// 第一次打开，用户还没有本地配置文件
+			if (checked == null) {
+				console.log('未找到配置文件：默认浅色模式');
+				// 深色模式
+			} else if (checked == true) {
+				document.getElementById("dark-theme-toggle").checked = true;
+				console.log('成功获取配置文件：深色模式');
+				setTimeout(function () {
+					document.getElementById("main-css").href = "assets/css/style-dark.css";
+				}, 200);
+				// 浅色模式
+			} else {
+				document.getElementById("dark-theme-toggle").checked = false;
+				console.log('成功获取配置文件：浅色模式');
+				setTimeout(function () {
+					document.getElementById("main-css").href = "assets/css/style.css";
+				}, 200);
+			}
+		}
+
+		/* save dark mode */
+		function saveDarkMode(checkbox) {
+			// 保存用户配置文件
+			var checkbox = document.getElementById("dark-theme-toggle");
+			localStorage.setItem("dark-theme-toggle", checkbox.checked);
+
+			if (checkbox.checked == true) {
+				console.log('手动设置深色模式，并保存配置')
+				setTimeout(function () {
+					document.getElementById("main-css").href = "assets/css/style-dark.css";
+				}, 200);
+
+			} else {
+				console.log('手动设置浅色模式，并保存配置')
+				setTimeout(function () {
+					document.getElementById("main-css").href = "assets/css/style.css";
+				}, 200);
+			}
+		}
+
+		/* APlayer */
+		const ap = new APlayer({
+			container: document.getElementById('player'),
+			mini: true,
+			audio: [{
+				name: 'Play With Me',
+				artist: 'Dan Salvato',
+				url: 'https://img-1254235857.file.myqcloud.com/catcomics/music/s1-bgm.mp3',
+				cover: 'assets/images/cd.png',
+				theme: '#ebd0c2'
+			}]
+		});
+
+		function ap_toggle() {
+			ap.toggle();
+			if (document.getElementById("js-palymusic").className == 'ap-pause js-music active') {
+				document.getElementById("js-palymusic").setAttribute("class", "ap-play js-music active");
+			} else if (document.getElementById("js-palymusic").className == 'ap-play js-music active') {
+				document.getElementById("js-palymusic").setAttribute("class", "ap-pause js-music active");
+			}
+		}
+	</script>
+
 	<!-- live2d -->
 	<script src="live2d/autoload.js"></script>
 
@@ -323,28 +407,6 @@
 		});
 	});
 
-	const ap = new APlayer({
-		container: document.getElementById('player'),
-		mini: true,
-		audio: [{
-			name: 'Play With Me',
-			artist: 'Dan Salvato',
-			url: 'https://img-1254235857.file.myqcloud.com/catcomics/music/s1-bgm.mp3',
-			cover: 'assets/images/cd.jpg',
-			theme: '#ebd0c2'
-		}]
-	});
-
-	function ap_toggle() {
-		ap.toggle();
-		if (document.getElementById("js-palymusic").className == 'ap-pause js-music active') {
-			document.getElementById("js-palymusic").setAttribute("class","ap-play js-music active");
-		} else if (document.getElementById("js-palymusic").className == 'ap-play js-music active') {
-			document.getElementById("js-palymusic").setAttribute("class","ap-pause js-music active");
-		}
-	}
-
-	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
 
 </html>

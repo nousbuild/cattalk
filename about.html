@@ -40,8 +40,8 @@
 	<!-- Bootstrap  -->
 	<link rel="stylesheet" href="assets/css/bootstrap.css">
 
-	<!-- Theme style  -->
-	<link rel="stylesheet" href="assets/css/style.css">
+	<!-- Theme Style  -->
+	<link rel="stylesheet" id="main-css" href="assets/css/style.css" />
 
 	<!-- Modernizr JS -->
 	<script src="assets/js/modernizr-2.6.2.min.js"></script>
@@ -52,7 +52,7 @@
 
 </head>
 
-<body>
+<body onload="onload()">
 
 	<div class="fh5co-loader"></div>
 
@@ -301,6 +301,35 @@
 	<script src="assets/js/magnific-popup-options.js"></script>
 	<!-- Main -->
 	<script src="assets/js/main.js"></script>
+
+	<!-- Inside Scripts -->
+	<script type="text/javascript">
+		/* footerYeaer js */
+		document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+
+		/* load theme settings */
+		function onload(hour) {
+			// 打开页面
+			var checked = JSON.parse(localStorage.getItem("dark-theme-toggle"));
+			// 第一次打开，用户还没有本地配置文件
+			if (checked == null) {
+				console.log('未找到配置文件：默认自动模式');
+				// 深色模式
+			} else if (checked == true) {
+				console.log('成功获取配置文件：深色模式');
+				setTimeout(function () {
+					document.getElementById("main-css").href = "assets/css/style-dark.css";
+				}, 200);
+				// 浅色模式
+			} else {
+				console.log('成功获取配置文件：浅色模式');
+				setTimeout(function () {
+					document.getElementById("main-css").href = "assets/css/style.css";
+				}, 200);
+			}
+		}
+	</script>
+
 	<!-- live2d -->
 	<script src="live2d/autoload.js"></script>
 
@@ -319,8 +348,6 @@
 			});
 		});
 	});
-
-	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 
 </script>
 

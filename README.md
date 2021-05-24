@@ -1,7 +1,6 @@
 # CatTalk Source Code
 
-
-![Build Status](https://travis-ci.org/typelift/Swiftz.svg?branch=master)
+![小喵心语](https://img.shields.io/badge/小喵心语-cattalk.nousbuiuld.org-F6B5B2)
 
 <img src='favicon.png' align='right' alt='SA Logo'>
 
@@ -18,6 +17,12 @@ HTML, JavaScript, CSS
 #### 服务器环境
 
 仅需储存空间即可
+
+#### 依赖
+
+依赖于 Live2D API 接口
+
+- `Live2D API` https://www.nousbuild.org/api/live2d/
 
 #### 如何使用 ?
 
