@@ -54,6 +54,9 @@
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 
+	<!-- Lozad JS -->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+
 </head>
 
 <body onload="onload()">
@@ -137,7 +140,7 @@
 									<script type="text/javascript">
 										for (var i = 1; i < 11; i++) {
 											(function (i) {
-												document.write('<img class="img-responsive" src="https://img-1254235857.file.myqcloud.com/catcomics/e1/' + i + '.jpg" alt="漫画">')
+												document.write('<img class="img-responsive lozad" data-src="https://img-1254235857.file.myqcloud.com/catcomics/e1/' + i + '.jpg" alt="漫画">')
 											})(i);
 										}
 									</script>
