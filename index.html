@@ -13,14 +13,38 @@
 	<!-- Favicons -->
 	<link rel='apple-touch-icon' href='apple-touch-icon.png' sizes='180x180'>
 	<link rel='icon' type='image/png' href='favicon.png' sizes='128x128'>
-	<!--[if IE]><link rel="shortcut icon" href="http://www.nousbuild.org/favicon.ico"><![endif]-->
-	<!-- or, set /favicon.ico for IE10 win -->
 	<link rel='shortcut icon' href='favicon.ico'>
 	<meta name='theme-color' content='#FFFFFF'>
 
+	<!-- Color CSS Define -->
+	<style id="switch-theme-color"></style>
+
+	<!-- Loading -->
+	<script>
+		function loading() {
+			let lightstyle = ":root {--color-1: #828282;--color-2: #ffffff;--color-3: #1d2f3b;--color-4: #000;--color-5: #FFE8E6;--color-6: #00000090;--color-7: #000;--color-8: #fff;--color-9: #1d2f3b;--color-10: #000;--color-11: #fff;--color-12: #efefef;--color-13: rgba(0, 0, 0, 0.5);--color-14: #fff;}";
+			let darkstyle = ":root {--color-1: #FDF0E9;--color-2: #272625;--color-3: #F4B1AE;--color-4: #fff;--color-5: #141413;--color-6: #FDF0E990;--color-7: #FDF0E9;--color-8: #FDE8E6;--color-9: #FDF0E9;--color-10: #E68476;--color-11: #141413;--color-12: #141413;--color-13: rgba(255, 255, 255, 0.5);--color-14: #000;}";
+			var checked = localStorage.getItem("dark-theme-toggle");
+
+			console.log(checked)
+			if (checked == "light") {
+				document.getElementById("dark-theme-toggle").checked = false;
+				document.getElementById("switch-theme-color").innerHTML = lightstyle;
+				console.log('成功获取配置文件：浅色模式');
+			} else if (checked == "dark") {
+				document.getElementById("dark-theme-toggle").checked = true;
+				document.getElementById("switch-theme-color").innerHTML = darkstyle;
+				console.log('成功获取配置文件：深色模式');
+			} else {
+				document.getElementById("switch-theme-color").innerHTML = lightstyle;
+				console.log('未找到配置文件：默认浅色模式');
+			}
+		}
+	</script>
+
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137231556-1"></script>
-	<script>
+	<script type="text/javascript">
 		window.dataLayer = window.dataLayer || [];
 
 		function gtag() {
@@ -60,7 +84,7 @@
 
 </head>
 
-<body onload="onload()">
+<body>
 
 	<div class="fh5co-loader"></div>
 
@@ -196,7 +220,7 @@
 						<h2><span>人物 Character</span></h2>
 					</div>
 				</div>
-				<div class="row">
+				<div class="row row-overflow-x">
 					<div class="col-md-3">
 						<div class="fh5co-blog animate-box">
 							<a><img class="img-responsive" src="assets/images/cxz.jpg" alt="程小展"></a>
@@ -420,6 +444,8 @@
 								<input type="checkbox" id="dark-theme-toggle" onclick="saveDarkMode(this)"/>
 								<label class="dark-button" for="dark-theme-toggle"></label>
 
+								<script type="text/javascript">loading();</script>
+
 							</div>
 
 							<!-- 作者介绍 -->
@@ -529,47 +555,19 @@
 		/* footerYeaer js */
 		document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 
-		/* load theme settings */
-		function onload(hour) {
-			// 打开页面
-			var checked = JSON.parse(localStorage.getItem("dark-theme-toggle"));
-			// 第一次打开，用户还没有本地配置文件
-			if (checked == null) {
-				console.log('未找到配置文件：默认浅色模式');
-				// 深色模式
-			} else if (checked == true) {
-				document.getElementById("dark-theme-toggle").checked = true;
-				console.log('成功获取配置文件：深色模式');
-				setTimeout(function () {
-					document.getElementById("main-css").href = "assets/css/style-dark.css";
-				}, 200);
-				// 浅色模式
-			} else {
-				document.getElementById("dark-theme-toggle").checked = false;
-				console.log('成功获取配置文件：浅色模式');
-				setTimeout(function () {
-					document.getElementById("main-css").href = "assets/css/style.css";
-				}, 200);
-			}
-		}
-
 		/* save dark mode */
 		function saveDarkMode(checkbox) {
-			// 保存用户配置文件
-			var checkbox = document.getElementById("dark-theme-toggle");
-			localStorage.setItem("dark-theme-toggle", checkbox.checked);
+			let lightstyle = ":root {--color-1: #828282;--color-2: #ffffff;--color-3: #1d2f3b;--color-4: #000;--color-5: #FFE8E6;--color-6: #00000090;--color-7: #000;--color-8: #fff;--color-9: #1d2f3b;--color-10: #000;--color-11: #fff;--color-12: #efefef;--color-13: rgba(0, 0, 0, 0.5);--color-14: #fff;}";
+			let darkstyle = ":root {--color-1: #FDF0E9;--color-2: #272625;--color-3: #F4B1AE;--color-4: #fff;--color-5: #141413;--color-6: #FDF0E990;--color-7: #FDF0E9;--color-8: #FDE8E6;--color-9: #FDF0E9;--color-10: #E68476;--color-11: #141413;--color-12: #141413;--color-13: rgba(255, 255, 255, 0.5);--color-14: #000;}";
 
 			if (checkbox.checked == true) {
 				console.log('手动设置深色模式，并保存配置')
-				setTimeout(function () {
-					document.getElementById("main-css").href = "assets/css/style-dark.css";
-				}, 200);
-
+				localStorage.setItem("dark-theme-toggle", "dark");
+				document.getElementById("switch-theme-color").innerHTML = darkstyle;
 			} else {
 				console.log('手动设置浅色模式，并保存配置')
-				setTimeout(function () {
-					document.getElementById("main-css").href = "assets/css/style.css";
-				}, 200);
+				localStorage.setItem("dark-theme-toggle", "light");
+				document.getElementById("switch-theme-color").innerHTML = lightstyle;
 			}
 		}
 	</script>

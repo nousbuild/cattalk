@@ -10,6 +10,38 @@
 	<meta name="keywords" content="小喵心语, CatTalk, 那些年的校园与我们, 原创, 漫画, 校园, 青春, 表情包, 人物, 初中, 主线" />
 	<meta name="author" content="小喵心语 CatTalk" />
 
+	<!-- Favicons -->
+	<link rel='apple-touch-icon' href='apple-touch-icon.png' sizes='180x180'>
+	<link rel='icon' type='image/png' href='favicon.png' sizes='128x128'>
+	<link rel='shortcut icon' href='favicon.ico'>
+	<meta name='theme-color' content='#FFFFFF'>
+
+	<!-- Color CSS Define -->
+	<style id="switch-theme-color"></style>
+
+	<!-- Loading -->
+	<script>
+		function loading() {
+			let lightstyle = ":root {--color-1: #828282;--color-2: #ffffff;--color-3: #1d2f3b;--color-4: #000;--color-5: #FFE8E6;--color-6: #00000090;--color-7: #000;--color-8: #fff;--color-9: #1d2f3b;--color-10: #000;--color-11: #fff;--color-12: #efefef;--color-13: rgba(0, 0, 0, 0.5);--color-14: #fff;}";
+			let darkstyle = ":root {--color-1: #FDF0E9;--color-2: #272625;--color-3: #F4B1AE;--color-4: #fff;--color-5: #141413;--color-6: #FDF0E990;--color-7: #FDF0E9;--color-8: #FDE8E6;--color-9: #FDF0E9;--color-10: #E68476;--color-11: #141413;--color-12: #141413;--color-13: rgba(255, 255, 255, 0.5);--color-14: #000;}";
+			var checked = localStorage.getItem("dark-theme-toggle");
+
+			console.log(checked)
+			if (checked == "light") {
+				document.getElementById("dark-theme-toggle").checked = false;
+				document.getElementById("switch-theme-color").innerHTML = lightstyle;
+				console.log('成功获取配置文件：浅色模式');
+			} else if (checked == "dark") {
+				document.getElementById("dark-theme-toggle").checked = true;
+				document.getElementById("switch-theme-color").innerHTML = darkstyle;
+				console.log('成功获取配置文件：深色模式');
+			} else {
+				document.getElementById("switch-theme-color").innerHTML = lightstyle;
+				console.log('未找到配置文件：默认浅色模式');
+			}
+		}
+	</script>
+
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137231556-1"></script>
 	<script>
@@ -36,7 +68,7 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Josefin+Slab:400,600,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
-	
+
 	<!-- Bootstrap  -->
 	<link rel="stylesheet" href="assets/css/bootstrap.css">
 
@@ -94,8 +126,10 @@
 									<ul class="fh5co-social-icons">
 										<li><a href="https://www.nousbuild.org/"><i class="icon-home3"></i></a></li>
 										<li><a href="mailto:admin@nousbuild.com"><i class="icon-envelop"></i></a></li>
-										<li><a class="getminipp"><i style="cursor:pointer" class="icon-qrcode"></i></a></li>
-										<li><a href="https://windmill0503.github.io/get-cattalk/"><i class="icon-github"></i></a></li>
+										<li><a class="getminipp"><i style="cursor:pointer" class="icon-qrcode"></i></a>
+										</li>
+										<li><a href="https://windmill0503.github.io/get-cattalk/"><i
+													class="icon-github"></i></a></li>
 									</ul>
 								</div>
 							</div>
@@ -148,9 +182,14 @@
 										<p>想要留言互动？想要给小喵写信？扫码打开小程序参与更多互动。<br>人物专属表情需要在小程序内获取。</p>
 										<ul class="fh5co-social-icons">
 											<li>分享</li>
-											<li><a href="http://connect.qq.com/widget/shareqq/index.html?url=http://cattalk.nousbuild.org/s1.html&sharesource=qzone&title=碟中谍一线生机&pics=http://cattalk.nousbuild.org/assets/images/cover-s1.jpg&summary=主线篇第一话&desc=主线第一话更新了快来围观"><i class="icon-qq qq"></i></a></li>
-											<li><a href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://cattalk.nousbuild.org/s1.html&&sharesource=qzone&title=碟中谍一线生机&pics=http://cattalk.nousbuild.org/assets/images/cover-s1.jpg&summary=主线篇第一话"><i class="icon-qzone"></i></a></li>
-											<li><a style="cursor:pointer" class="wechat"><i class="icon-wechat"></i></a></li>
+											<li><a
+													href="http://connect.qq.com/widget/shareqq/index.html?url=http://cattalk.nousbuild.org/s1.html&sharesource=qzone&title=碟中谍一线生机&pics=http://cattalk.nousbuild.org/assets/images/cover-s1.jpg&summary=主线篇第一话&desc=主线第一话更新了快来围观"><i
+														class="icon-qq qq"></i></a></li>
+											<li><a
+													href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://cattalk.nousbuild.org/s1.html&&sharesource=qzone&title=碟中谍一线生机&pics=http://cattalk.nousbuild.org/assets/images/cover-s1.jpg&summary=主线篇第一话"><i
+														class="icon-qzone"></i></a></li>
+											<li><a style="cursor:pointer" class="wechat"><i class="icon-wechat"></i></a>
+											</li>
 										</ul>
 									</div>
 								</div>
@@ -189,8 +228,10 @@
 									<ul class="fh5co-social-icons">
 										<li><a href="https://www.nousbuild.org/"><i class="icon-home3"></i></a></li>
 										<li><a href="mailto:admin@nousbuild.com"><i class="icon-envelop"></i></a></li>
-										<li><a class="getminipp"><i style="cursor:pointer" class="icon-qrcode"></i></a></li>
-										<li><a href="https://windmill0503.github.io/get-cattalk/"><i class="icon-github"></i></a></li>
+										<li><a class="getminipp"><i style="cursor:pointer" class="icon-qrcode"></i></a>
+										</li>
+										<li><a href="https://windmill0503.github.io/get-cattalk/"><i
+													class="icon-github"></i></a></li>
 									</ul>
 								</div>
 							</div>
@@ -201,8 +242,10 @@
 									<h2><span>主题 Theme</span></h2>
 								</div>
 
-								<input type="checkbox" id="dark-theme-toggle" onclick="saveDarkMode(this)"/>
+								<input type="checkbox" id="dark-theme-toggle" onclick="saveDarkMode(this)" />
 								<label class="dark-button" for="dark-theme-toggle"></label>
+
+								<script type="text/javascript">loading();</script>
 
 							</div>
 
@@ -245,9 +288,11 @@
 								</div>
 								<div class="row">
 									<div class="col-md-12">
-										<div class="insta" style="background-image: url(assets/images/minipp-wxqr.jpg);">
+										<div class="insta"
+											style="background-image: url(assets/images/minipp-wxqr.jpg);">
 										</div>
-										<div class="insta" style="background-image: url(assets/images/minipp-qqqr.jpg);">
+										<div class="insta"
+											style="background-image: url(assets/images/minipp-qqqr.jpg);">
 										</div>
 									</div>
 								</div>
@@ -265,16 +310,19 @@
 				<div class="row copyright">
 					<div class="col-md-12 text-center">
 						<p>
-							<small class="block">&copy; <span id="footerYear">2019</span> <a href="https://cattalk.nousbuild.org/">CatTalk</a>. All Rights Reserved.</small>
-							<small class="block">Special Thanks <a href="https://www.nousbuild.org/" target="_blank">Scenery Architecture</a></small>
+							<small class="block">&copy; <span id="footerYear">2019</span> <a
+									href="https://cattalk.nousbuild.org/">CatTalk</a>. All Rights Reserved.</small>
+							<small class="block">Special Thanks <a href="https://www.nousbuild.org/"
+									target="_blank">Scenery Architecture</a></small>
 						</p>
 						<p>
-							<ul class="fh5co-social-icons">
-								<li><a href="https://www.nousbuild.org/"><i class="icon-home3"></i></a></li>
-								<li><a href="mailto:admin@nousbuild.com"><i class="icon-envelop"></i></a></li>
-								<li><a class="getminipp"><i style="cursor:pointer" class="icon-qrcode"></i></a></li>
-								<li><a href="https://windmill0503.github.io/get-cattalk/"><i class="icon-github"></i></a></li>
-							</ul>
+						<ul class="fh5co-social-icons">
+							<li><a href="https://www.nousbuild.org/"><i class="icon-home3"></i></a></li>
+							<li><a href="mailto:admin@nousbuild.com"><i class="icon-envelop"></i></a></li>
+							<li><a class="getminipp"><i style="cursor:pointer" class="icon-qrcode"></i></a></li>
+							<li><a href="https://windmill0503.github.io/get-cattalk/"><i class="icon-github"></i></a>
+							</li>
+						</ul>
 						</p>
 					</div>
 				</div>
@@ -314,47 +362,25 @@
 		/* footerYeaer js */
 		document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 
-		/* load theme settings */
-		function onload(hour) {
-			// 打开页面
-			var checked = JSON.parse(localStorage.getItem("dark-theme-toggle"));
-			// 第一次打开，用户还没有本地配置文件
-			if (checked == null) {
-				console.log('未找到配置文件：默认浅色模式');
-				// 深色模式
-			} else if (checked == true) {
-				document.getElementById("dark-theme-toggle").checked = true;
-				console.log('成功获取配置文件：深色模式');
-				setTimeout(function () {
-					document.getElementById("main-css").href = "assets/css/style-dark.css";
-				}, 200);
-				// 浅色模式
-			} else {
-				document.getElementById("dark-theme-toggle").checked = false;
-				console.log('成功获取配置文件：浅色模式');
-				setTimeout(function () {
-					document.getElementById("main-css").href = "assets/css/style.css";
-				}, 200);
-			}
+		/* on load */
+		function onload() {
+			const observer = lozad();
+			observer.observe();
 		}
 
 		/* save dark mode */
 		function saveDarkMode(checkbox) {
-			// 保存用户配置文件
-			var checkbox = document.getElementById("dark-theme-toggle");
-			localStorage.setItem("dark-theme-toggle", checkbox.checked);
+			let lightstyle = ":root {--color-1: #828282;--color-2: #ffffff;--color-3: #1d2f3b;--color-4: #000;--color-5: #FFE8E6;--color-6: #00000090;--color-7: #000;--color-8: #fff;--color-9: #1d2f3b;--color-10: #000;--color-11: #fff;--color-12: #efefef;--color-13: rgba(0, 0, 0, 0.5);--color-14: #fff;}";
+			let darkstyle = ":root {--color-1: #FDF0E9;--color-2: #272625;--color-3: #F4B1AE;--color-4: #fff;--color-5: #141413;--color-6: #FDF0E990;--color-7: #FDF0E9;--color-8: #FDE8E6;--color-9: #FDF0E9;--color-10: #E68476;--color-11: #141413;--color-12: #141413;--color-13: rgba(255, 255, 255, 0.5);--color-14: #000;}";
 
 			if (checkbox.checked == true) {
 				console.log('手动设置深色模式，并保存配置')
-				setTimeout(function () {
-					document.getElementById("main-css").href = "assets/css/style-dark.css";
-				}, 200);
-
+				localStorage.setItem("dark-theme-toggle", "dark");
+				document.getElementById("switch-theme-color").innerHTML = darkstyle;
 			} else {
 				console.log('手动设置浅色模式，并保存配置')
-				setTimeout(function () {
-					document.getElementById("main-css").href = "assets/css/style.css";
-				}, 200);
+				localStorage.setItem("dark-theme-toggle", "light");
+				document.getElementById("switch-theme-color").innerHTML = lightstyle;
 			}
 		}
 
@@ -410,10 +436,6 @@
 			});
 		});
 	});
-
-	const observer = lozad();
-	observer.observe();
-
 </script>
 
 </html>
