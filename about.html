@@ -28,11 +28,9 @@
 
 			console.log(checked)
 			if (checked == "light") {
-				document.getElementById("dark-theme-toggle").checked = false;
 				document.getElementById("switch-theme-color").innerHTML = lightstyle;
 				console.log('成功获取配置文件：浅色模式');
 			} else if (checked == "dark") {
-				document.getElementById("dark-theme-toggle").checked = true;
 				document.getElementById("switch-theme-color").innerHTML = darkstyle;
 				console.log('成功获取配置文件：深色模式');
 			} else {
@@ -339,22 +337,6 @@
 	<script type="text/javascript">
 		/* footerYeaer js */
 		document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
-
-		/* save dark mode */
-		function saveDarkMode(checkbox) {
-			let lightstyle = ":root {--color-1: #828282;--color-2: #ffffff;--color-3: #1d2f3b;--color-4: #000;--color-5: #FFE8E6;--color-6: #00000090;--color-7: #000;--color-8: #fff;--color-9: #1d2f3b;--color-10: #000;--color-11: #fff;--color-12: #efefef;--color-13: rgba(0, 0, 0, 0.5);--color-14: #fff;}";
-			let darkstyle = ":root {--color-1: #FDF0E9;--color-2: #272625;--color-3: #F4B1AE;--color-4: #fff;--color-5: #141413;--color-6: #FDF0E990;--color-7: #FDF0E9;--color-8: #FDE8E6;--color-9: #FDF0E9;--color-10: #E68476;--color-11: #141413;--color-12: #141413;--color-13: rgba(255, 255, 255, 0.5);--color-14: #000;}";
-
-			if (checkbox.checked == true) {
-				console.log('手动设置深色模式，并保存配置')
-				localStorage.setItem("dark-theme-toggle", "dark");
-				document.getElementById("switch-theme-color").innerHTML = darkstyle;
-			} else {
-				console.log('手动设置浅色模式，并保存配置')
-				localStorage.setItem("dark-theme-toggle", "light");
-				document.getElementById("switch-theme-color").innerHTML = lightstyle;
-			}
-		}
 	</script>
 
 	<!-- live2d -->
