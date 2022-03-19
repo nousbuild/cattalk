@@ -172,7 +172,7 @@ h1, h2, h3, h4, h5, h6, figure {
 .fh5co-nav ul li a {
   font-size: 14px;
   padding: 30px 15px;
-  color: var(--color-6)
+  color: var(--color-6);
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
@@ -620,7 +620,7 @@ h1, h2, h3, h4, h5, h6, figure {
   display: inline-block;
   zoom: 1;
   *display: inline;
-  color: var(--color-9)
+  color: var(--color-9);
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -2052,8 +2052,10 @@ label {
 }
 
 input {
-  position: absolute;
-  left: -9999px;
+  /*position: absolute;*/
+  /*left: -9999px;*/
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 .dark-button {

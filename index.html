@@ -36,8 +36,16 @@
 				document.getElementById("switch-theme-color").innerHTML = darkstyle;
 				console.log('成功获取配置文件：深色模式');
 			} else {
-				document.getElementById("switch-theme-color").innerHTML = lightstyle;
-				console.log('未找到配置文件：默认浅色模式');
+				const themeMedia = window.matchMedia("(prefers-color-scheme: light)");
+        		if (themeMedia.matches) {
+					document.getElementById("dark-theme-toggle").checked = false;
+					document.getElementById("switch-theme-color").innerHTML = lightstyle;
+					console.log('根据系统颜色选择：浅色模式');
+        		} else {
+					document.getElementById("dark-theme-toggle").checked = true;
+					document.getElementById("switch-theme-color").innerHTML = darkstyle;
+					console.log('根据系统颜色选择：深色模式');
+        		}
 			}
 		}
 	</script>
@@ -121,7 +129,7 @@
 										<li><a href="https://www.nousbuild.org/"><i class="icon-home3"></i></a></li>
 										<li><a href="mailto:admin@nousbuild.com"><i class="icon-envelop"></i></a></li>
 										<li><a class="getminipp"><i style="cursor:pointer" class="icon-qrcode"></i></a></li>
-										<li><a href="https://windmill0503.github.io/get-cattalk/"><i class="icon-github"></i></a></li>
+										<li><a href="https://pudding0503.github.io/get-cattalk/"><i class="icon-github"></i></a></li>
 									</ul>
 								</div>
 							</div>
@@ -430,7 +438,7 @@
 										<li><a href="https://www.nousbuild.org/"><i class="icon-home3"></i></a></li>
 										<li><a href="mailto:admin@nousbuild.com"><i class="icon-envelop"></i></a></li>
 										<li><a class="getminipp"><i style="cursor:pointer" class="icon-qrcode"></i></a></li>
-										<li><a href="https://windmill0503.github.io/get-cattalk/"><i class="icon-github"></i></a></li>
+										<li><a href="https://pudding0503.github.io/get-cattalk/"><i class="icon-github"></i></a></li>
 									</ul>
 								</div>
 							</div>
@@ -520,7 +528,7 @@
 								<li><a href="https://www.nousbuild.org/"><i class="icon-home3"></i></a></li>
 								<li><a href="mailto:admin@nousbuild.com"><i class="icon-envelop"></i></a></li>
 								<li><a class="getminipp"><i style="cursor:pointer" class="icon-qrcode"></i></a></li>
-								<li><a href="https://windmill0503.github.io/get-cattalk/"><i class="icon-github"></i></a></li>
+								<li><a href="https://pudding0503.github.io/get-cattalk/"><i class="icon-github"></i></a></li>
 							</ul>
 						</p>
 					</div>
