@@ -28,21 +28,17 @@
 
 			console.log(checked)
 			if (checked == "light") {
-				document.getElementById("dark-theme-toggle").checked = false;
 				document.getElementById("switch-theme-color").innerHTML = lightstyle;
 				console.log('成功获取配置文件：浅色模式');
 			} else if (checked == "dark") {
-				document.getElementById("dark-theme-toggle").checked = true;
 				document.getElementById("switch-theme-color").innerHTML = darkstyle;
 				console.log('成功获取配置文件：深色模式');
 			} else {
 				const themeMedia = window.matchMedia("(prefers-color-scheme: light)");
         		if (themeMedia.matches) {
-					document.getElementById("dark-theme-toggle").checked = false;
 					document.getElementById("switch-theme-color").innerHTML = lightstyle;
 					console.log('根据系统颜色选择：浅色模式');
         		} else {
-					document.getElementById("dark-theme-toggle").checked = true;
 					document.getElementById("switch-theme-color").innerHTML = darkstyle;
 					console.log('根据系统颜色选择：深色模式');
         		}
