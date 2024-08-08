@@ -1,0 +1,375 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+
+<head>
+	<!-- Title -->
+	<title>Offline - 小喵心语 CatTalk</title>
+
+	<!-- Meta -->
+	<link rel="canonical" href="index.html">
+	<meta http-equiv="content-type" content="text/html" charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="content-language" content="zh-cn">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, minimal-ui">
+	<meta name="description" content="小喵心语 CatTalk 原创校园漫画《那些年的校园与我们》发行平台。" />
+	<meta name="keywords" content="小喵心语, CatTalk, 那些年的校园与我们, 原创, 漫画, 校园, 青春, 表情包, 人物, 高中" />
+	<meta name="author" content="小喵心语 CatTalk" />
+
+	<!-- Favicons -->
+	<link rel='apple-touch-icon' href='apple-touch-icon.png' sizes='180x180'>
+	<link rel='icon' type='image/png' href='favicon.png' sizes='128x128'>
+	<link rel='shortcut icon' href='favicon.ico'>
+	<meta name='theme-color' content='#FFFFFF'>
+
+	<!-- Color CSS Define -->
+	<style id="switch-theme-color"></style>
+
+	<style>
+		.loader {
+			position: fixed;
+			left: 0px;
+			top: 0px;
+			width: 100%;
+			height: 100%;
+			z-index: 1100;
+			background: url("assets/images/loader.svg") center no-repeat #FFFFFF;
+		}
+
+		.loader-dark {
+			position: fixed;
+			left: 0px;
+			top: 0px;
+			width: 100%;
+			height: 100%;
+			z-index: 1100;
+			background: url("assets/images/loader.svg") center no-repeat #141413;
+		}
+
+		.fade-out {
+            animation: fadeOut 0.3s linear forwards;
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+
+		html,
+		body {
+			background: var(--body-background);
+			font-family: "Segoe UI", "PingFangSC-Light", "Microsoft YaHei", -apple-system, "SF Pro Text", "Myriad Set Pro", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		.box {
+			width: 350px;
+			height: 100%;
+			max-height: 500px;
+			min-height: 450px;
+			background: var(--box-background);
+			border-radius: 20px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			padding: 30px 50px;
+		}
+
+		.box .box-img {
+			padding: 15px 25px 25px;
+			position: absolute;
+			left: 50%;
+			top: 30%;
+			transform: translate(-50%, -30%);
+		}
+
+		.box .box-img .symbol:nth-child(2) {
+			position: absolute;
+			left: -5px;
+			top: 30px;
+			height: 18px;
+			width: 18px;
+			border: 4px solid;
+			border-radius: 50%;
+			border-color: var(--symbol-color);
+			opacity: 0.2;
+			animation: shine 4s ease-in-out 1.3s infinite;
+		}
+
+		.box .box-img .symbol:nth-child(3) {
+			opacity: 0.2;
+			animation: shine 3s ease-in-out 0.5s infinite;
+		}
+
+		.box .box-img .symbol:nth-child(3):before,
+		.box .box-img .symbol:nth-child(3):after {
+			content: "";
+			width: 12px;
+			height: 4px;
+			background: var(--symbol-color);
+			position: absolute;
+			border-radius: 5px;
+			top: 5px;
+			left: 40px;
+		}
+
+		.box .box-img .symbol:nth-child(3):before {
+			transform: rotate(90deg);
+		}
+
+		.box .box-img .symbol:nth-child(3):after {
+			transform: rotate(180deg);
+		}
+
+		.box .box-img .symbol:nth-child(4) {
+			opacity: 0.2;
+			animation: shine 6s ease-in-out 1.6s infinite;
+		}
+
+		.box .box-img .symbol:nth-child(4):before,
+		.box .box-img .symbol:nth-child(4):after {
+			content: "";
+			width: 15px;
+			height: 4px;
+			background: var(--symbol-color);
+			position: absolute;
+			border-radius: 5px;
+			top: 10px;
+			right: 30px;
+		}
+
+		.box .box-img .symbol:nth-child(4):before {
+			transform: rotate(45deg);
+		}
+
+		.box .box-img .symbol:nth-child(4):after {
+			transform: rotate(-45deg);
+		}
+
+		.box .box-img .symbol:nth-child(5) {
+			position: absolute;
+			right: 5px;
+			top: 40px;
+			height: 12px;
+			width: 12px;
+			border: 3px solid;
+			border-radius: 50%;
+			border-color: var(--symbol-color);
+			opacity: 0.2;
+			animation: shine 1.7s ease-in-out 7s infinite;
+		}
+
+		.box .box-img .symbol:nth-child(6) {
+			opacity: 0.2;
+			animation: shine 2s ease-in-out 6s infinite;
+		}
+
+		.box .box-img .symbol:nth-child(6):before,
+		.box .box-img .symbol:nth-child(6):after {
+			content: "";
+			width: 15px;
+			height: 4px;
+			background: var(--symbol-color);
+			position: absolute;
+			border-radius: 5px;
+			bottom: 65px;
+			right: -5px;
+		}
+
+		.box .box-img .symbol:nth-child(6):before {
+			transform: rotate(90deg);
+		}
+
+		.box .box-img .symbol:nth-child(6):after {
+			transform: rotate(180deg);
+		}
+
+		.box .box-logo {
+			width: 100px;
+			height: 100px;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			animation: upndown 3s ease-in-out infinite;
+		}
+
+		.box .box-description {
+			position: absolute;
+			bottom: 30px;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+		.box .box-description .box-description-container {
+			color: var(--box-title);
+			text-align: center;
+			width: 200px;
+			font-size: 16px;
+			margin: 0 auto;
+		}
+
+		.box .box-description .box-description-container .box-description-title {
+			font-size: 24px;
+			letter-spacing: 0.5px;
+		}
+
+		.box .box-description .box-description-container .box-description-text {
+			color: var(--box-text);
+			line-height: 20px;
+			margin-top: 20px;
+		}
+
+		.box .box-description .box-button {
+			display: block;
+			position: relative;
+			background: #df7366;
+			border: 1px solid transparent;
+			border-radius: 50px;
+			height: 50px;
+			text-align: center;
+			text-decoration: none;
+			color: #fff;
+			line-height: 50px;
+			font-size: 18px;
+			padding: 0 70px;
+			white-space: nowrap;
+			margin-top: 25px;
+			transition: background 0.5s ease;
+			overflow: hidden;
+			-webkit-mask-image: -webkit-radial-gradient(white, black);
+		}
+
+		.box .box-description .box-button:before {
+			content: "";
+			position: absolute;
+			width: 20px;
+			height: 100px;
+			background: #fff;
+			bottom: -25px;
+			left: 0;
+			border: 2px solid #fff;
+			transform: translateX(-50px) rotate(45deg);
+			transition: transform 0.5s ease;
+		}
+
+		.box .box-description .box-button:hover {
+			background: transparent;
+			border-color: #fff;
+		}
+
+		.box .box-description .box-button:hover:before {
+			transform: translateX(250px) rotate(45deg);
+		}
+
+		@keyframes upndown {
+			0% { transform: translateY(5px); }
+			50% { transform: translateY(15px); }
+			100% { transform: translateY(5px); }
+		}
+
+		@keyframes smallnbig {
+			0% { width: 90px; }
+			50% { width: 100px; }
+			100% { width: 90px; }
+		}
+
+		@keyframes shine {
+			0% { opacity: 0.2; }
+			25% { opacity: 0.1; }
+			50% { opacity: 0.2; }
+			100% { opacity: 0.2; }
+		}
+	</style>
+
+	<!-- Style CSS -->
+	<script type="text/javascript">
+		function loading() {
+			let lightstyle = ":root {--body-background: #ffffff; --box-background: #ffe8e6; --box-title: #000; --box-text: #555; --symbol-color: #E68476;}";
+			let darkstyle = ":root {--body-background: #272625; --box-background: #141413; --box-title: #fff; --box-text: #ccc; --symbol-color: #fff;}";
+			var checked = localStorage.getItem("theme");
+
+			if (checked == "light") {
+				document.getElementById("loader").className = "loader";
+				document.getElementById("switch-theme-color").innerHTML = lightstyle;
+				console.log('Get User Profile: Light Theme');
+			} else if (checked == "dark") {
+				document.getElementById("loader").className = "loader-dark";
+				document.getElementById("switch-theme-color").innerHTML = darkstyle;
+				console.log('Get User Profile: Dark Theme');
+			} else {
+				now = new Date(), hour = now.getHours();
+				if (hour < 6) {
+					document.getElementById("loader").className = "loader-dark";
+					document.getElementById("switch-theme-color").innerHTML = darkstyle;
+				} else if (hour < 19) {
+					document.getElementById("loader").className = "loader";
+					document.getElementById("switch-theme-color").innerHTML = lightstyle;
+				} else {
+					document.getElementById("loader").className = "loader-dark";
+					document.getElementById("switch-theme-color").innerHTML = darkstyle;
+				}
+				console.log('No User Profile: Default Theme');
+			}
+		}
+
+		function onload() {
+			if (document.readyState === 'loading') {
+				console.log('Loading Not Yet');
+			} else {
+				console.log('Loading Complete');
+				setTimeout(function () {
+					var loader = document.getElementById("loader");
+                    loader.classList.add("fade-out");
+                    loader.addEventListener("animationend", function() {
+                        loader.remove();
+                    });
+				}, 1000);
+			}
+		}
+	</script>
+
+</head>
+
+<body class="homepage is-preload" onload="onload()">
+	<!-- Loader -->
+	<div id="loader"></div>
+
+	<!-- Main -->
+	<div>
+		<div class="box">
+			<div class="box-img">
+				<img class="box-logo" src="pwa/pwa@192.png">
+
+				<div class="symbol"></div>
+				<div class="symbol"></div>
+				<div class="symbol"></div>
+				<div class="symbol"></div>
+				<div class="symbol"></div>
+				<div class="symbol"></div>
+
+			</div>
+
+			<div class="box-description">
+				<div class="box-description-container">
+					<div class="box-description-title">您已离线</div>
+					<div class="box-description-text">请连接互联网后刷新</div>
+				</div>
+
+				<a href="index.html" class="box-button">刷新</a>
+
+			</div>
+
+		</div>
+	</div>
+
+	<!-- Loading -->
+	<script>loading();</script>
+
+</body>
+
+</html>
