@@ -19,6 +19,19 @@
 	<!-- Color CSS Define -->
 	<style id="switch-theme-color"></style>
 
+	<!-- Add PWA Support -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="#FFE8E6">
+	<link rel="manifest" href="manifest.json">
+	<script type="text/javascript">
+		if (navigator.serviceWorker != null) {
+		  navigator.serviceWorker.register('sw.js')
+		  .then(function(registration) {
+			console.log('Registered events at scope: ', registration.scope);
+		  });
+		}
+	</script>
+
 	<!-- Loading -->
 	<script>
 		function loading() {
@@ -50,20 +63,6 @@
 		}
 	</script>
 
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137231556-1"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-
-		function gtag() {
-			dataLayer.push(arguments);
-		}
-		gtag('js', new Date());
-
-		gtag('config', 'UA-137231556-1');
-	</script>
-
-
 	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content="特别篇：意外“事故”" />
 	<meta property="og:image" content="http://cattalk.nousbuild.org/assets/images/cattalk-logo.jpg" />
@@ -91,19 +90,17 @@
 	<script src="assets/js/modernizr-2.6.2.min.js"></script>
 
 	<!-- Lozad JS -->
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+	<script type="text/javascript" src="assets/js/lozad.min.js"></script>
 
-	<!-- Add PWA Support -->
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="#FFE8E6">
-	<link rel="manifest" href="manifest.json">
-	<script type="text/javascript">
-		if (navigator.serviceWorker != null) {
-		  navigator.serviceWorker.register('sw.js')
-		  .then(function(registration) {
-			console.log('Registered events at scope: ', registration.scope);
-		  });
+	<!-- Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137231556-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
 		}
+		gtag('js', new Date());
+		gtag('config', 'UA-137231556-1');
 	</script>
 
 </head>

@@ -1,4 +1,4 @@
-const CACHE_VERSION = '1.2.0';
+const CACHE_VERSION = '1.2.1';
 
 const BASE_CACHE_FILES = [
     '/favicon.ico',
@@ -44,6 +44,7 @@ const BASE_CACHE_FILES = [
     '/assets/js/modernizr-2.6.2.min.js',
     '/assets/js/respond.min.js',
     '/assets/js/sweetalert.min.js',
+    '/assets/js/lozad.min.js',
     '/assets/images/loader.svg',
     '/assets/images/cattalk-banner.png',
 ];
@@ -101,14 +102,16 @@ const CACHE_STRATEGY = {
 
 const CACHE_BLACKLIST = [
     '/sw.js',
-    '/download/',
-    '/\.mp4$',
+    '/preview=true/',
+    '/music/',
+    '/\.mp3$',
 ];
 
 const neverCacheUrls = [
     '/sw.js',
     '/preview=true/',
-    '/api/',
+    '/music/',
+    '/\.mp3$',
 ];
 
 const SUPPORTED_METHODS = [
@@ -476,27 +479,36 @@ self.addEventListener('activate', event => {
 });
 
 // This fetch handler serves responses for same-origin resources from a cache.
-self.addEventListener('fetch', event => {
-    // If this is a range request, let fetchRengeData handle it
-    if (cachingStrategy.handleRangeRequest(event) === false) return;
-
+self.addEventListener('fetch', (event) => {
+    const requestUrl = new URL(event.request.url);
+  
+    // Check if the request is for an .mp3 file
+    if (requestUrl.pathname.endsWith('.mp3')) {
+      event.respondWith(fetch(event.request));
+      return;
+    }
+  
     // Handle non-GET requests
     if (cachingStrategy.notGetMethods(event) === false) return;
-
+  
+    // If this is a range request, let fetchRengeData handle it
+    if (cachingStrategy.handleRangeRequest(event) === false) return;
+  
     // Use cache-first strategy for images
     if (event.request.url.match(/\.(?:png|jpg|jpeg|svg|gif)$/)) {
-        event.respondWith(
-            caches.match(event.request)
-                .then(response => {
-                    return response || fetch(event.request);
-                })
-        );
-        return;
+      event.respondWith(
+        caches.match(event.request)
+          .then(response => {
+            return response || fetch(event.request);
+          })
+      );
+      return;
     }
-
+  
     // Use network-first strategy for all other requests
     event.respondWith(
-        cachingStrategy.fetchFromNetwork(event)
-            .catch(() => cachingStrategy.fetchFromCache(event))
+      cachingStrategy.fetchFromNetwork(event)
+        .catch(() => cachingStrategy.fetchFromCache(event))
     );
-});
+  });
+  
