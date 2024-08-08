@@ -35,11 +35,6 @@
 
 - `Live2D API` https://www.nousbuild.org/api/live2d/
 
-### 3. 如何使用 ?
+### 3. 许可
 
-1. 获取某个分支的代码文件到本地，不保留根文件夹 `cattalk.nousbuild.org`；
-2. 上传所有文件至服务器根目录 `htdocs` 或上传至 COS；
-
-### 4. 许可
-
-© Copyright [Haoning Wu](https://github.com/pudding0503). All rights reserved. 
+© Copyright [ONing](https://github.com/pudding0503). All rights reserved. 
